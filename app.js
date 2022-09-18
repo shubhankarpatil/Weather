@@ -11,7 +11,6 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", function(req, res){
-  // res.sendFile(__dirname + "/index.html");
   const bkey = process.env.BING_KEY;
   const surl = "http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=" + bkey;
   res.render("index", {key: surl});
@@ -27,7 +26,6 @@ app.post("/", function(req, res){
   https.get(url, function(response){
     response.on("data", function(data){
       const weatherData = JSON.parse(data);
-      // console.log(weatherData);
       const temperature = weatherData.main.temp;
       const weatherDesc = _.startCase(weatherData.weather[0].description);
       const icon = weatherData.weather[0].icon;
@@ -39,9 +37,6 @@ app.post("/", function(req, res){
       var today = new Date();
       var time = today.getHours() + ":" + today.getMinutes();
 
-      // res.write("<h1>The temperature in " + cityName + " is " + temperature + " degree celsius.</h1>");
-      // res.write("<p> The weather is currently " + weatherDesc + ".</p>");
-      // res.write("<img src=" + imageURL +">");
       res.render("result", {city: cityName, temp: temperature, desc: weatherDesc,
                             iURL: imageURL, ws: windSpeed, p: pressure, humidity: humid, t:time});
       res.send();
