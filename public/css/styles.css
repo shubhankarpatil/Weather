@@ -1,0 +1,33 @@
+.first{
+  position: absolute;
+}
+
+.second{
+  height: 100%;
+  background-color: #C4DDFF;
+}
+
+.input{
+  text-align: center;
+  margin-top: 300px;
+}
+
+.third{
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+.form-control{
+  display: inline;
+  width: 50%
+}
+
+.btn{
+  margin-top: 7px;
+}
+
+.lastbtn{
+  margin-top: 7px;
+  margin-left: 67px;
+}
